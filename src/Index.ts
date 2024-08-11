@@ -11,6 +11,7 @@ if (!MONGO_DB_URL) {
 }
 
 const app = express();
+// Middleware to parse JSON Bodies-------------------------------------------------
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 app.use(cors({
@@ -20,6 +21,7 @@ app.use(cors({
     credentials: true
 }))
 
+// --------------Connect To MongoDB DataBase----------------
 const connectDB = async () => {
     try {
         await mongoose.connect(MONGO_DB_URL);
@@ -31,6 +33,10 @@ const connectDB = async () => {
 }
 
 connectDB();
+
+// -----------------User Routes--------------------
+import userRoute from "./routes/user"
+app.use("/user", userRoute);
 
 app.get('/', async (req, res) => {
     res.send("Server is running");
