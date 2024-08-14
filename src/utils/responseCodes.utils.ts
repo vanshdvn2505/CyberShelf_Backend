@@ -7,7 +7,7 @@ export function response_400(res: Response, message: String){
     })
 }
 
-export function response_200(res: Response, message: String, data: Object) {
+export function response_200(res: Response, message: String, data?: Object) {
     return res.status(200).json({
         status: 'Inserted',
         message,
@@ -15,7 +15,7 @@ export function response_200(res: Response, message: String, data: Object) {
     });
 }
 
-export function response_500(res: Response, log_message: String, err: any) {
+export function response_500(res: Response, log_message: String, err?: any) {
     var message = err != null ? `${log_message}: ${err}` : log_message;
 
     console.log(message);
