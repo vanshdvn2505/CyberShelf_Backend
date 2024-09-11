@@ -30,6 +30,7 @@ const userSchema = new mongoose.Schema({
 
     branch: {
         type: String,
+        default: "IT",
         required: false
     },
 
@@ -44,7 +45,7 @@ const userSchema = new mongoose.Schema({
         required: false
     }
 
-}, {timestamps: true})
+}, {timestamps: false})
 
 
 const User = mongoose.model("Users", userSchema);

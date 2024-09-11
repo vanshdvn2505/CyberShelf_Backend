@@ -42,6 +42,14 @@ app.get('/', async (req, res) => {
     res.send("Server is running");
 })
 
+import SemWiseSub from "./models/semWiseSub.model"
+import { response_200 } from "./utils/responseCodes.utils"
+app.get('/help', async (req, res) => {
+    const data = await SemWiseSub.find();
+    console.log(data);
+    return response_200(res, "", data);
+})
+
 app.listen(PORT, () => {
     console.log(`Listening on ${PORT}...`)
 })
