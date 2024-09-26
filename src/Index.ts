@@ -5,7 +5,6 @@ import cors from "cors"
 dotenv.config()
 const PORT = process.env.PORT || 7000
 const MONGO_DB_URL = process.env.MONGO_DB_URL
-
 if (!MONGO_DB_URL) {
     throw new Error("MONGO_DB_URL is not defined in the environment variables.");
 }
@@ -38,16 +37,16 @@ connectDB();
 import userRoute from "./routes/user"
 app.use("/user", userRoute);
 
+
+// -----------------Data Routes--------------------
+import dataRoutes from "./routes/data"
+app.use("/data", dataRoutes);
+
+
+
+
 app.get('/', async (req, res) => {
     res.send("Server is running");
-})
-
-import SemWiseSub from "./models/semWiseSub.model"
-import { response_200 } from "./utils/responseCodes.utils"
-app.get('/help', async (req, res) => {
-    const data = await SemWiseSub.find();
-    console.log(data);
-    return response_200(res, "", data);
 })
 
 app.listen(PORT, () => {

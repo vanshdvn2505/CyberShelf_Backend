@@ -1,9 +1,7 @@
 import express from "express"
 import jwt from 'jsonwebtoken'
 import User from "../models/user.model";
-import bcrypt from "bcrypt"
-import nodemailer, {SendMailOptions, SentMessageInfo} from 'nodemailer'
-import { isAuthorised } from "../middlewares/isAuthorised.middleware";
+import nodemailer, {SentMessageInfo} from 'nodemailer'
 import { Request, Response } from "express";
 import { response_200, response_400, response_500 } from "../utils/responseCodes.utils";
 const router = express.Router();
