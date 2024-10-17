@@ -185,8 +185,11 @@ router.route('/login').post(async (req: Request, res: Response) => {
         return response_200(res, "Login Successful", {
                 name: result.name,
                 email: email,
-                password: password,
                 token: token,
+                semester: result.semester,
+                batch: result.batch,
+                branch: result.branch,
+                imageUrl: result.imageUrl
         })
     }
     catch(error){

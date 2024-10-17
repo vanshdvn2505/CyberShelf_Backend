@@ -43,8 +43,6 @@ import dataRoutes from "./routes/data"
 app.use("/data", dataRoutes);
 
 
-
-
 app.get('/', async (req, res) => {
     res.send("Server is running");
 })

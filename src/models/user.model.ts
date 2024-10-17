@@ -17,14 +17,14 @@ const userSchema = new mongoose.Schema({
     },
 
     semester: {
-        type: Number,
-        default: 1,
+        type: String,
+        default: "1",
         required: false 
     },
 
     batch: {
-        type: Number,
-        default: 2028,
+        type: String,
+        default: "2028",
         required: false,
     },
 
